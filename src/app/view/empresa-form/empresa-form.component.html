@@ -1,0 +1,30 @@
+<div class="form-container">
+    <h2>{{ isEditMode ? 'Editar Empresa' : 'Nova Empresa' }} (N CRUD)</h2>
+
+    <form [formGroup]="empresaForm" (ngSubmit)="salvarEmpresa()">
+
+        <input type="hidden" formControlName="id">
+
+        <div class="form-group">
+            <label for="razaoSocial">Razão Social:</label>
+            <input id="razaoSocial" type="text" formControlName="razaoSocial" required>
+        </div>
+
+        <div class="form-group">
+            <label for="cnpj">CNPJ (apenas números):</label>
+            <input id="cnpj" type="text" formControlName="cnpj" required maxlength="14">
+            <div *ngIf="empresaForm.get('cnpj')?.invalid && empresaForm.get('cnpj')?.touched" class="error-message">
+                CNPJ é obrigatório (14 dígitos).
+            </div>
+        </div>
+
+        <div class="form-actions">
+            <button type="submit" [disabled]="empresaForm.invalid" class="btn-submit">
+                {{ isEditMode ? 'Atualizar' : 'Salvar Empresa' }}
+            </button>
+            <button type="button" [routerLink]="['/empresas']" class="btn-cancel">
+                Cancelar
+            </button>
+        </div>
+    </form>
+</div>

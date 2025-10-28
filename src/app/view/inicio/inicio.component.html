@@ -1,0 +1,27 @@
+<div class="menu-container">
+    <h1>Bem-vindo ao Sistema de Certificados Digitais</h1>
+    <p>Selecione a operação desejada:</p>
+
+    <div class="menu-group">
+        <h2>1. Formulário Mestre-Detalhe (Orçamento)</h2>
+        <p>Cumpre o requisito central da Atividade 3.</p>
+        <button [routerLink]="['/orcamento/novo']">
+            Abrir Formulário de Orçamento (Mestre-Detalhe)
+        </button>
+    </div>
+
+    <div class="menu-group">
+        <h2>2. N Formulários CRUD (Administração)</h2>
+        <p>Gerenciamento das entidades de apoio (Clientes e Empresas).</p>
+        
+        <button [routerLink]="['/clientes']">
+            Clientes (CRUD)
+        </button>
+        
+        <button [routerLink]="['/empresas']">
+            Empresas (CRUD)
+        </button>
+        
+        </div>
+    
+</div>

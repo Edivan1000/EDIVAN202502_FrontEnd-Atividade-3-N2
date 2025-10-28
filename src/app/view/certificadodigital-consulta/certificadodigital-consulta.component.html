@@ -1,0 +1,52 @@
+<div class="consulta-container" *ngIf="orcamento">
+    <h2>Consulta do Orçamento #{{ orcamento.id }}</h2>
+    
+    <div class="mestre-info">
+        <h3>Dados da Solicitação</h3>
+        <p><strong>Status:</strong> <span class="status-{{ orcamento.status | lowercase }}">{{ orcamento.status }}</span></p>
+        <p><strong>Data da Solicitação:</strong> {{ orcamento.dataSolicitacao | date: 'dd/MM/yyyy' }}</p>
+
+        <h3>Dados do Cliente</h3>
+        <p><strong>Nome:</strong> {{ orcamento.cliente.nome }}</p>
+        <p><strong>E-mail:</strong> {{ orcamento.cliente.email }}</p>
+        <p><strong>Telefone:</strong> {{ orcamento.cliente.telefone }}</p>
+    </div>
+
+    <div class="detalhe-info">
+        <h3>Itens do Orçamento (Detalhe)</h3>
+
+        <table *ngIf="orcamento.itens && orcamento.itens.length > 0">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Produto</th>
+                    <th>Público</th>
+                    <th>Validade</th>
+                    <th>Preço Unitário</th>
+                    <th>Status Envio</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of orcamento.itens; let i = index">
+                    <td>{{ i + 1 }}</td>
+                    <td>{{ item.nomeProduto }}</td>
+                    <td>{{ item.tipoPublico }}</td>
+                    <td>{{ item.validadeMeses }} meses</td>
+                    <td>R$ {{ item.preco | number:'1.2-2' }}</td>
+                    <td>{{ item.ativo ? 'Proposta Enviada' : 'Rascunho' }}</td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <div class="total-geral">
+            <strong>TOTAL GERAL: R$ {{ calcularTotal() | number:'1.2-2' }}</strong>
+        </div>
+
+        <p *ngIf="!orcamento.itens || orcamento.itens.length === 0">Nenhum item de certificado encontrado neste orçamento.</p>
+    </div>
+
+</div>
+
+<p *ngIf="!orcamento">Carregando orçamento...</p>
+
+<button [routerLink]="['/orcamento']" class="btn-voltar">Voltar para a Lista</button>

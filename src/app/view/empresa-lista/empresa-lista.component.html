@@ -1,0 +1,36 @@
+<div class="lista-container">
+    <h2>Empresas Cadastradas (N CRUD)</h2>
+
+    <button [routerLink]="['/empresa/novo']" class="btn-novo">
+        + Adicionar Nova Empresa
+    </button>
+
+    <table *ngIf="empresas.length > 0; else noEmpresas">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Razão Social</th>
+          <th>CNPJ</th>
+          <th>Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let empresa of empresas">
+          <td>{{ empresa.id }}</td>
+          <td>{{ empresa.razaoSocial }}</td>
+          <td>{{ empresa.cnpj }}</td>
+          <td>
+            <button *ngIf="empresa.id" (click)="editarEmpresa(empresa.id)" class="btn-acao">Editar</button>
+
+<div *ngFor="let empresa of empresas">
+    <button *ngIf="empresa.id" (click)="editarEmpresa(empresa.id)" class="btn-acao">Editar</button>
+</div>
+            </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <ng-template #noEmpresas>
+        <p>Nenhuma empresa cadastrada.</p>
+    </ng-template>
+</div>

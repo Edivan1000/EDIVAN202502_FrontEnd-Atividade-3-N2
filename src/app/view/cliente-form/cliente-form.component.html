@@ -1,0 +1,38 @@
+<div class="form-container">
+    <h2>{{ isEditMode ? 'Editar Cliente' : 'Novo Cliente' }} (N CRUD)</h2>
+
+    <form [formGroup]="clienteForm" (ngSubmit)="salvarCliente()">
+
+        <input type="hidden" formControlName="id">
+
+        <div class="form-group">
+            <label for="nome">Nome Completo:</label>
+            <input id="nome" type="text" formControlName="nome" required>
+            <div *ngIf="clienteForm.get('nome')?.invalid && clienteForm.get('nome')?.touched" class="error-message">
+                Nome é obrigatório.
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="email">E-mail:</label>
+            <input id="email" type="email" formControlName="email" required>
+            <div *ngIf="clienteForm.get('email')?.invalid && clienteForm.get('email')?.touched" class="error-message">
+                E-mail é obrigatório e deve ser válido.
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="telefone">Telefone:</label>
+            <input id="telefone" type="text" formControlName="telefone">
+        </div>
+        
+        <div class="form-actions">
+            <button type="submit" [disabled]="clienteForm.invalid" class="btn-submit">
+                {{ isEditMode ? 'Atualizar' : 'Salvar Cliente' }}
+            </button>
+            <button type="button" [routerLink]="['/clientes']" class="btn-cancel">
+                Cancelar
+            </button>
+        </div>
+    </form>
+</div>

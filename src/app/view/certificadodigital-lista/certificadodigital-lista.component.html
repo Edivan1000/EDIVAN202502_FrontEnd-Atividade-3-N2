@@ -1,0 +1,35 @@
+<h2>Lista de Solicitações de Orçamento (Mestre)</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID Orçamento</th>
+      <th>Nome do Cliente</th>
+      <th>E-mail do Cliente</th>
+      <th>Data da Solicitação</th>
+      <th>Status</th>
+      <th>Ações</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let orcamento of orcamentos">
+      <td>{{ orcamento.id }}</td>
+      <td>{{ orcamento.cliente.nome }}</td>
+      <td>{{ orcamento.cliente.email }}</td>
+      <td>{{ orcamento.dataSolicitacao | date: 'dd/MM/yyyy' }}</td>
+      <td [class.status-enviado]="orcamento.status === 'ENVIADO'">{{ orcamento.status }}</td>
+      <td>
+        <button (click)="consultarDetalhe(orcamento.id)">Ver Detalhes (Consulta)</button>
+        </td>
+    </tr>
+  </tbody>
+</table>
+
+<p *ngIf="orcamentos.length === 0">Nenhum orçamento encontrado.</p>
+
+<style>
+/* Adicione estilos básicos se necessário */
+table { width: 100%; border-collapse: collapse; }
+th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+.status-enviado { font-weight: bold; color: blue; }
+</style>

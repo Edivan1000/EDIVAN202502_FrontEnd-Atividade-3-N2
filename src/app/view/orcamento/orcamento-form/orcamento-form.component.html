@@ -1,0 +1,94 @@
+<div class="container">
+    <h2>Formulário Principal: Orçamento de Certificados (Mestre-Detalhe)</h2>
+    <form [formGroup]="orcamentoForm" (ngSubmit)="salvarOrcamento()" class="form-mestre-detalhe">
+
+        <fieldset formGroupName="cliente" class="form-section mestre-section">
+            <h3>1. Dados do Cliente (Mestre)</h3>
+            
+            <div class="form-group">
+                <label for="nome">Nome Completo:</label>
+                <input id="nome" type="text" formControlName="nome" required>
+                <div *ngIf="orcamentoForm.get('cliente.nome')?.invalid && orcamentoForm.get('cliente.nome')?.touched" class="error-message">
+                    Nome é obrigatório.
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="email">E-mail:</label>
+                <input id="email" type="email" formControlName="email" required>
+                <div *ngIf="orcamentoForm.get('cliente.email')?.invalid && orcamentoForm.get('cliente.email')?.touched" class="error-message">
+                    E-mail é obrigatório e deve ser válido.
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="telefone">Telefone:</label>
+                <input id="telefone" type="text" formControlName="telefone">
+            </div>
+            
+        </fieldset>
+
+        <fieldset class="form-section detalhe-section">
+            <h3>2. Certificados Digitais (Detalhes)</h3>
+
+            <div formArrayName="itens" class="itens-list">
+                <div *ngFor="let itemForm of itens.controls; let i = index" [formGroupName]="i" class="item-card">
+
+                    <h4>Item #{{ i + 1 }}</h4>
+
+                    <div class="form-group-inline">
+                        <label>Tipo de Certificado:</label>
+                        <select formControlName="produtoCatalogoId" required (change)="onProdutoChange(i)">
+                            <option [ngValue]="null" disabled>Selecione o Produto</option>
+                            <option *ngFor="let produto of produtosCatalogo" [ngValue]="produto.id">
+                                {{ produto.nome }}
+                            </option>
+                        </select>
+                    </div>
+
+                    <div class="form-group-inline" *ngIf="itemForm.get('produtoCatalogoId')?.value">
+                        <label>Validade (Meses):</label>
+                        <select formControlName="produtoOpcaoId" required (change)="onOpcaoChange(i)">
+                            <option [ngValue]="null" disabled>Selecione a Validade</option>
+                            
+                            <option *ngFor="let opcao of getOpcoesParaProduto(itemForm.get('produtoCatalogoId')?.value)" [ngValue]="opcao.id">
+                                {{ opcao.validadeMeses }} Meses (R$ {{ opcao.preco | number:'1.2-2' }})
+                            </option>
+                            
+                        </select>
+                    </div>
+
+                    <div class="form-group-inline">
+                        <label>Público:</label>
+                        <select formControlName="tipoPublico">
+                            <option value="PF">Pessoa Física (PF)</option>
+                            <option value="PJ">Pessoa Jurídica (PJ)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group-inline info-display">
+                        <label>Preço Sugerido:</label>
+                        <input type="text" [value]="itemForm.get('preco')?.value | number:'1.2-2'" readonly>
+                    </div>
+                    
+                    <button type="button" (click)="removerItemCertificado(i)" class="btn-remove">
+                        Remover Item
+                    </button>
+                    <hr>
+                </div>
+            </div>
+            
+            <button type="button" (click)="adicionarItemCertificado()" class="btn-add">
+                + Adicionar Outro Certificado
+            </button>
+            
+        </fieldset>
+
+        <div class="form-actions">
+            <button type="submit" [disabled]="orcamentoForm.invalid" class="btn-submit">
+                {{ orcamentoForm.invalid ? 'Preencha o Formulário' : 'Enviar Solicitação de Orçamento' }}
+            </button>
+        </div>
+
+    </form>
+</div>
