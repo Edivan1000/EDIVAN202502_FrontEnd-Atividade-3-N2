@@ -1,0 +1,24 @@
+<div class="container">
+
+    <h3> Detalhes do Produto </h3>
+    <br>
+
+    <div><label><b>Código: </b></label> {{ produto.codigo }}</div>
+    <div><label><b>Nome: </b></label> {{ produto.nome }}</div>
+    <div><label><b>Descrição: </b></label> {{ produto.descricao }}</div>
+    <div><label><b>Validade (Meses): </b></label> {{ produto.validadeMeses }}</div>
+    <div><label><b>Preço: </b></label> {{ produto.preco }}</div>
+    <div><label><b>Disponível: </b></label> {{ produto.disponivel ? 'Sim' : 'Não' }}</div>
+    <div><label><b>Quantidade: </b></label> {{ produto.quantidade }}</div>
+    <div><label><b>Tipo Pessoa: </b></label> {{ produto.tipoPessoa }}</div>
+    <div><label><b>Modalidade: </b></label> {{ produto.modalidade }}</div>
+
+    <div><label><b>Categoria Certificado: </b></label> {{ produto.categoriaCertificado.nome}}</div>
+
+    <br><br>
+
+    <div>
+        <button (click)="retornar()" class="btn btn-success" style="margin-left: 10px"> Voltar </button>
+    </div>
+
+</div>
