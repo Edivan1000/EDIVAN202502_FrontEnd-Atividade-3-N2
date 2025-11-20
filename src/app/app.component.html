@@ -1,0 +1,43 @@
+<nav class="navbar navbar-expand-sm navbar-dark futuristic-navbar shadow-lg">
+    <div class="container-fluid">
+        
+        <a routerLink="inicio" class="navbar-brand logo-neon me-5">
+            EdCertifica Tech
+        </a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a routerLink="inicio" routerLinkActive="active" class="nav-link nav-link-neon">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a routerLink="cliente-lista" routerLinkActive="active" class="nav-link nav-link-neon">Clientes</a>
+                </li>
+                <li class="nav-item">
+                    <a routerLink="empresa-lista" routerLinkActive="active" class="nav-link nav-link-neon">Empresas</a>
+                </li>
+                <li class="nav-item">
+                    <a routerLink="produto-lista" routerLinkActive="active" class="nav-link nav-link-neon">Produtos</a>
+                </li>
+                <li class="nav-item">
+                    <a routerLink="categoriacertificado-lista" routerLinkActive="active" class="nav-link nav-link-neon">Categorias</a>
+                </li>
+                <li class="nav-item">
+                    <a routerLink="orcamento-lista" routerLinkActive="active" class="nav-link nav-link-neon">Orçamentos</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<router-outlet></router-outlet>
+
+<footer class="footer futuristic-footer text-center mt-5 py-3 border-top-neon">
+    <div class="container">
+        <span class="text-muted-neon">Sistema de Gestão de Certificados Digitais - V1.0</span>
+    </div>
+</footer>

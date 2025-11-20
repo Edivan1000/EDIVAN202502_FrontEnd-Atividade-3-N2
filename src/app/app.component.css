@@ -1,0 +1,60 @@
+/* --- 1. BARRA DE NAVEGAÇÃO --- */
+.futuristic-navbar {
+    background-color: #1a1a2e !important; /* Fundo escuro */
+    border-bottom: 2px solid rgba(0, 188, 212, 0.4); /* Linha neon sutil */
+    padding: 10px 0;
+}
+
+/* Estilo do Logo/Título Neon */
+.logo-neon {
+    color: #00bcd4; /* Azul ciano */
+    font-size: 1.8rem;
+    font-weight: bold;
+    text-shadow: 0 0 10px rgba(0, 188, 212, 0.8), 0 0 20px rgba(0, 188, 212, 0.5);
+    transition: all 0.3s;
+}
+
+.logo-neon:hover {
+    color: #8affff;
+    text-shadow: 0 0 15px #8affff, 0 0 30px #8affff;
+}
+
+/* Estilo dos Links na Navegação */
+.nav-link-neon {
+    color: #e0e0e0 !important; /* Cor clara para links normais */
+    font-weight: 500;
+    margin: 0 10px;
+    transition: all 0.3s;
+    border-bottom: 2px solid transparent; /* Para o efeito de hover */
+}
+
+.nav-link-neon:hover {
+    color: #00bcd4 !important; /* Cor neon no hover */
+    text-shadow: 0 0 5px rgba(0, 188, 212, 0.5);
+    border-bottom: 2px solid #00bcd4; /* Sublinhado neon */
+}
+
+/* Estilo do link ativo */
+.navbar-nav .nav-item .active {
+    color: #8affff !important; /* Cor neon mais clara para o ativo */
+    text-shadow: 0 0 8px #8affff;
+    border-bottom: 2px solid #8affff;
+}
+
+/* --- 2. RODAPÉ --- */
+.futuristic-footer {
+    background-color: #1a1a2e; /* Fundo escuro */
+    border-top: none; /* Remove a borda padrão */
+}
+
+/* Borda Topo Neon */
+.border-top-neon {
+    border-top: 1px solid #00bcd4 !important;
+    box-shadow: 0 -2px 10px rgba(0, 188, 212, 0.4); /* Brilho suave */
+}
+
+/* Texto do Rodapé Neon */
+.text-muted-neon {
+    color: #8affff !important; /* Texto claro/neon */
+    font-size: 0.9rem;
+}
