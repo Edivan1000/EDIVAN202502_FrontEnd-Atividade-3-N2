@@ -1,0 +1,31 @@
+<div class="container-fluid py-5 cliente-consulta-bg">
+    <div class="container light-card">
+        <h2 class="mb-4 text-primary-neon border-bottom pb-2">
+            <i class="bi bi-tag-fill me-2"></i> Detalhes da Categoria
+        </h2>
+
+        <div class="row mb-5">
+            <div class="col-lg-10"> <div class="data-group-card p-4">
+                    <div class="row g-3">
+                        
+                        <div class="col-12">
+                            <label class="data-label">Código:</label>
+                            <p class="data-value">{{ categoria.codigo }}</p>
+                        </div>
+                        
+                        <div class="col-12">
+                            <label class="data-label">Nome:</label>
+                            <p class="data-value category-value">{{ categoria.nome }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="d-flex justify-content-start mt-5">
+            <button class="btn btn-outline-secondary btn-lg btn-neon" (click)="retornar()">
+                <i class="bi bi-arrow-left me-2"></i> Voltar
+            </button>
+        </div>
+    </div>
+</div>

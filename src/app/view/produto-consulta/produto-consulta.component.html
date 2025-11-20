@@ -1,0 +1,85 @@
+<div class="container-fluid py-5 cliente-consulta-bg">
+    <div class="container light-card">
+        <h2 class="mb-4 text-primary-neon border-bottom pb-2">
+            <i class="bi bi-patch-check-fill me-2"></i> Detalhes do Produto
+        </h2>
+
+        <div class="row mb-5">
+            <div class="col-lg-11">
+                <div class="data-group-card p-4">
+                    <div class="row g-3">
+
+                        <div class="col-md-4 col-sm-12">
+                            <label class="data-label">Código:</label>
+                            <p class="data-value">{{ produto.codigo }}</p>
+                        </div>
+                        <div class="col-md-4 col-sm-12">
+                            <label class="data-label">Nome:</label>
+                            <p class="data-value">{{ produto.nome }}</p>
+                        </div>
+
+
+                        <div class="col-md-4 col-sm-12">
+
+
+                            <label class="data-label">Descrição:</label>
+                            <p class="data-value description-text">{{ produto.descricao }}</p>
+                        </div>
+
+                        <div class="col-md-4 col-sm-6 mt-3">
+
+                            <label class="data-label">Modalidade:</label>
+                            <p class="data-value">{{ produto.modalidade }}</p>
+                        </div>
+                        <div class="col-md-4 col-sm-6 mt-3">
+                            <label class="data-label">Validade (Meses):</label>
+                            <p class="data-value">{{ produto.validadeMeses }}</p>
+                        </div>
+
+                        <div class="col-md-4 col-sm-12 mt-3">
+                            <label class="data-label">Categoria do Certificado:</label>
+                            <p class="data-value category-value">
+                                <i class="bi bi-tag-fill me-2"></i> {{ produto.categoriaCertificado.nome}}
+                            </p>
+
+                        </div>
+
+                        <div class="col-md-4 col-sm-6 mt-3">
+                            <label class="data-label">Tipo Pessoa:</label>
+                            <p class="data-value">{{ produto.tipoPessoa }}</p>
+                        </div>
+
+                        <div class="col-md-4 col-sm-6 mt-3">
+
+
+                            <label class="data-label">Preço:</label>
+                            <p class="data-value price-value">R$ {{ produto.preco }}</p>
+                        </div>
+
+                        <div class="col-md-4 col-sm-12 mt-3">
+                            <label class="data-label">Quantidade em Estoque:</label>
+                            <p class="data-value">{{ produto.quantidade }}</p>
+                        </div>
+
+                        <div class="col-12 mt-3">
+                            <label class="data-label">Disponível:</label>
+                            <p class="data-value">
+                                <span [class.text-success]="produto.disponivel"
+                                    [class.text-danger]="!produto.disponivel" class="fw-bold">
+                                    {{ produto.disponivel ? 'Sim' : 'Não' }}
+                                </span>
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="d-flex justify-content-start mt-5">
+            <button class="btn btn-outline-secondary btn-lg btn-neon" (click)="retornar()">
+                <i class="bi bi-arrow-left me-2"></i> Retornar
+            </button>
+        </div>
+    </div>
+</div>

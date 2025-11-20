@@ -1,0 +1,88 @@
+<div class="container-fluid py-5 cliente-consulta-bg">
+    <div class="container light-card">
+        <h2 class="mb-4 text-primary-neon border-bottom pb-2">
+            <i class="bi bi-building-fill me-2"></i> Detalhes da Empresa
+        </h2>
+
+        <div class="row mb-5">
+            <div class="col-12">
+                <h4 class="text-secondary-neon mb-3">Informações Cadastrais</h4>
+            </div>
+
+            <div class="col-lg-11">
+                <div class="data-group-card p-4">
+                    <div class="row g-3">
+
+                        <div class="col-md-4 col-sm-12">
+                            <label class="data-label">Razão Social:</label>
+                            <p class="data-value">{{ empresa.razaoSocial }}</p>
+                        </div>
+                        <div class="col-md-4 col-sm-12">
+                            <label class="data-label">Nome Fantasia:</label>
+                            <p class="data-value">{{ empresa.nomeFantasia }}</p>
+                        </div>
+                        <div class="col-md-4 col-sm-12">
+                            <label class="data-label">CNPJ:</label>
+                            <p class="data-value">{{ empresa.cnpj }}</p>
+                        </div>
+
+                        <div class="col-md-4 col-sm-12 mt-3">
+                            <label class="data-label">Email:</label>
+                            <p class="data-value">{{ empresa.email }}</p>
+                        </div>
+                        <div class="col-md-4 col-sm-12 mt-3">
+                            <label class="data-label">Telefone:</label>
+                            <p class="data-value">{{ empresa.telefone }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mb-5">
+            <div class="col-12">
+                <h4 class="text-secondary-neon mb-3">Endereço</h4>
+            </div>
+
+            <div class="col-lg-11">
+                <div class="data-group-card p-4">
+                    <div class="row g-3">
+
+                        <div class="col-md-4 col-sm-6">
+                            <label class="data-label">Logradouro:</label>
+                            <p class="data-value">{{ endereco.logradouro }}</p>
+                        </div>
+                        <div class="col-md-4 col-sm-6">
+                            <label class="data-label">Número:</label>
+                            <p class="data-value">{{ endereco.numero }}</p>
+                        </div>
+                        <div class="col-md-4 col-sm-12">
+                            <label class="data-label">Bairro:</label>
+                            <p class="data-value">{{ endereco.bairro }}</p>
+                        </div>
+
+                        <div class="col-md-4 col-sm-6 mt-3">
+                            <label class="data-label">Cidade:</label>
+                            <p class="data-value">{{ endereco.cidade }}</p>
+                        </div>
+                        <div class="col-md-4 col-sm-6 mt-3">
+                            <label class="data-label">Estado:</label>
+                            <p class="data-value">{{ endereco.estado }}</p>
+                        </div>
+                        <div class="col-md-4 col-sm-12 mt-3">
+                            <label class="data-label">CEP:</label>
+                            <p class="data-value">{{ endereco.cep }}</p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="d-flex justify-content-start mt-5">
+            <button class="btn btn-outline-secondary btn-lg btn-neon" (click)="voltar()">
+                <i class="bi bi-arrow-left me-2"></i> Voltar
+            </button>
+        </div>
+    </div>
+</div>

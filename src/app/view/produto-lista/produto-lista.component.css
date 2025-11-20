@@ -1,0 +1,24 @@
+/* Estilo para a galeria de cards */
+.futuristic-card {
+    background-color: #2b2b40; /* Fundo do card mais escuro */
+    border: 1px solid #00bcd4; /* Borda neon */
+    box-shadow: 0 0 10px rgba(0, 188, 212, 0.3);
+    overflow: hidden; /* Garante que a imagem se ajuste */
+}
+
+/* Garante que a imagem cubra o topo do card */
+.product-img {
+    height: 150px; /* Altura fixa para alinhar todas as imagens */
+    object-fit: cover; /* Garante que a imagem preencha o espaço sem distorcer */
+}
+
+/* Use as cores neon para o texto */
+.text-light-neon {
+    color: #8affff; 
+    font-weight: bold;
+}
+
+.text-secondary-neon {
+    color: #00bcd4;
+    text-shadow: 0 0 5px rgba(0, 188, 212, 0.5);
+}

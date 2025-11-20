@@ -1,0 +1,43 @@
+<div class="container mt-5 p-4 bg-light rounded shadow-sm">
+
+  <h2 class="mb-4">Lista de Categorias de Certificado</h2>
+
+  <!-- BOTÃO DE INSERIR NO TOPO -->
+  <div class="mb-3">
+    <button class="btn btn-success" (click)="inserirCategoria()">Nova Categoria</button>
+  </div>
+
+  <div *ngIf="categorias.length > 0" class="table-responsive">
+    <table class="table table-bordered table-striped">
+      <thead class="table-dark">
+        <tr>
+          <th>Código</th>
+          <th>Nome</th>
+          <th>Ações</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let categoria of categorias" style="cursor: pointer;">
+          <td>{{ categoria.codigo }}</td>
+          <td>{{ categoria.nome }}</td>
+          <td>
+            <button class="btn btn-info btn-sm me-1"
+                    (click)="consultarCategoria(categoria.codigo); $event.stopPropagation()">Consultar</button>
+
+            <button class="btn btn-primary btn-sm me-1"
+                    (click)="alterarCategoria(categoria.codigo); $event.stopPropagation()">Alterar</button>
+
+            <button class="btn btn-danger btn-sm"
+                    (click)="excluirCategoria(categoria.codigo); $event.stopPropagation()">Excluir</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div *ngIf="categorias.length === 0" class="alert alert-info">
+    Nenhuma categoria cadastrada.
+  </div>
+
+</div>

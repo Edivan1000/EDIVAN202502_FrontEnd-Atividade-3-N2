@@ -1,0 +1,45 @@
+<form #categoriaForm="ngForm" (ngSubmit)="onSubmit()">
+
+    <div class="container-fluid py-5 cliente-consulta-bg">
+        <div class="container light-card">
+            <h2 class="mb-4 text-primary-neon border-bottom pb-2">
+                <i class="bi bi-pencil-square me-2"></i> Alterar Categoria de Certificado
+            </h2>
+
+            <div class="row mb-4">
+                <div class="col-lg-11">
+                    <div class="data-group-card p-4 form-fields-group">
+                        <div class="row g-4">
+
+                            <div class="col-md-4">
+                                <label for="codigo" class="form-label data-label">Código:</label>
+                                <input type="text" id="codigo" name="codigo"
+                                       [(ngModel)]="categoriacertificado.codigo"
+                                       class="form-control" disabled>
+                            </div>
+
+                            <div class="col-md-4">
+                                <label for="nome" class="form-label data-label">Nome:</label>
+                                <input type="text" id="nome" name="nome"
+                                       [(ngModel)]="categoriacertificado.nome"
+                                       class="form-control" required>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="d-flex justify-content-start mt-5">
+                <button class="btn btn-lg me-3 btn-neon-primary" type="submit">
+                    <i class="bi bi-save me-2"></i> Salvar Alterações
+                </button>
+                <button (click)="listarCategoria()" class="btn btn-lg btn-outline-secondary" type="button">
+                    <i class="bi bi-arrow-left me-2"></i> Voltar
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+</form>

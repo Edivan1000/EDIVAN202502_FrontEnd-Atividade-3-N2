@@ -1,0 +1,113 @@
+/*
+ * ----------------------------------------------------
+ * VARIÁVEIS DE COR: PALETA FUTURISTA LEVE
+ * ----------------------------------------------------
+ */
+:root {
+    /* Fundo Claro */
+    --color-light-bg: #f4f7fa; /* Cinza claro sutil (Fundo do body/container-fluid) */
+    --color-light-card: #ffffff; /* Branco Puro (Fundo dos Cards) */
+    /* Cores de Destaque */
+    --color-primary-neon: #00bfff; /* Azul Ciber (Acento Principal) */
+    --color-secondary-neon: #6610f2; /* Roxo Néon (Acento Secundário) */
+    /* Texto */
+    --color-text-dark: #333333; /* Texto Principal */
+    --color-label-muted: #6c757d; /* Labels e texto secundário */
+}
+
+/* * ----------------------------------------------------
+ * ESTILO GERAL DO COMPONENTE
+ * ----------------------------------------------------
+ */
+.cliente-consulta-bg {
+    background-color: var(--color-light-bg);
+    min-height: 100vh;
+}
+
+.light-card {
+    background-color: var(--color-light-card);
+    color: var(--color-text-dark);
+    border-radius: 12px;
+    padding: 40px !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e9ecef;
+}
+
+/* Títulos e Destaques */
+.text-primary-neon {
+    color: var(--color-primary-neon) !important;
+}
+
+.text-secondary-neon {
+    color: var(--color-secondary-neon) !important;
+}
+
+/* * ----------------------------------------------------
+ * MELHORIA DOS CAMPOS DE EXIBIÇÃO (DATA FIELDS)
+ * ----------------------------------------------------
+ */
+.data-group-card {
+    /* Card que agrupa os dados */
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-left: 5px solid var(--color-secondary-neon); /* LINHA VERTICAL DE SEPARAÇÃO */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.data-group-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+}
+
+.data-label {
+    /* Label (Ex: Código:, Nome:) */
+    display: block;
+    font-size: 0.85rem;
+    color: var(--color-label-muted);
+    font-weight: 500;
+    margin-bottom: 2px;
+}
+
+.data-value {
+    /* Valor do Campo ({{ categoria.codigo }}) */
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--color-text-dark);
+    /* ESSAS DUAS PROPRIEDADES GARANTEM A SEPARAÇÃO VISUAL E VERTICAL */
+    margin-bottom: 15px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05); /* LINHA HORIZONTAL DE SEPARAÇÃO */
+    /* FIM DAS PROPRIEDADES DE SEPARAÇÃO */
+    word-wrap: break-word;
+}
+
+/* * ----------------------------------------------------
+ * ESTILOS ESPECÍFICOS DA CATEGORIA
+ * ----------------------------------------------------
+ */
+.category-value {
+    /* Destaque para o nome da categoria */
+    font-size: 1.2rem;
+    color: var(--color-secondary-neon);
+    font-weight: 700;
+}
+
+/* * ----------------------------------------------------
+ * BOTÃO NEON
+ * ----------------------------------------------------
+ */
+.btn-neon {
+    color: var(--color-primary-neon);
+    border-color: var(--color-primary-neon);
+    background: transparent;
+    transition: all 0.3s ease;
+}
+
+.btn-neon:hover {
+    color: var(--color-light-card);
+    background-color: var(--color-primary-neon);
+    box-shadow: 0 0 10px rgba(0, 191, 255, 0.5);
+    border-color: var(--color-primary-neon);
+}

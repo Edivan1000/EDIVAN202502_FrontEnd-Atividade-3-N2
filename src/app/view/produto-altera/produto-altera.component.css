@@ -1,0 +1,48 @@
+/* Inputs, Selects e Textareas com Efeito Neon */
+.form-control, select.form-control {
+    border: 1px solid #ced4da;
+    border-radius: 6px;
+    padding: 10px 12px;
+    font-size: 1rem;
+    color: var(--color-text-dark);
+    box-shadow: none;
+    transition: all 0.2s ease-in-out;
+}
+
+/* Efeito de Foco Neon */
+.form-control:focus, select.form-control:focus {
+    color: var(--color-text-dark);
+    background-color: var(--color-light-card);
+    border-color: var(--color-primary-neon); /* Borda fica azul neon */
+    box-shadow: 0 0 0 0.25rem rgba(0, 191, 255, 0.3); /* Sombra externa suave neon */
+    outline: 0;
+}
+
+/* Labels de Formulário */
+.form-label {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--color-label-muted);
+    font-weight: 500;
+    margin-bottom: 4px;
+}
+
+/* Toggle Switch e Checkbox */
+.form-check-input:checked {
+    background-color: var(--color-primary-neon);
+    border-color: var(--color-primary-neon);
+}
+
+/* Botão Primário Neon */
+.btn-neon-primary {
+    color: var(--color-light-card);
+    background-color: var(--color-primary-neon);
+    border-color: var(--color-primary-neon);
+    transition: all 0.3s ease;
+}
+
+.btn-neon-primary:hover {
+    background-color: #0099cc;
+    box-shadow: 0 0 15px rgba(0, 191, 255, 0.6);
+    border-color: #0099cc;
+}

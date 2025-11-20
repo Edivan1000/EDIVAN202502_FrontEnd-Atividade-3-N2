@@ -1,0 +1,60 @@
+<div class="container mt-5 p-4 bg-light rounded shadow-sm">
+
+  <h2 class="mb-4">Lista de Produtos</h2>
+
+  <!-- BOTÃO DE INSERIR NO TOPO -->
+  <div class="mb-3">
+    <button class="btn btn-success" (click)="inserirProduto()">Novo Produto</button>
+  </div>
+
+  <div *ngIf="produtos.length > 0" class="table-responsive">
+    <table class="table table-bordered table-striped">
+      <thead class="table-dark">
+        <tr>
+          <th>Código</th>
+          <th>Nome</th>
+          <th>Descrição</th>
+          <th>Modalidade</th>
+          <th>Validade (meses)</th>
+          <th>Categoria</th>
+          <th>Tipo Pessoa</th>
+          <th>Quantidade</th>
+          <th>Preço</th>
+          <th>Disponível</th>
+          <th>Ações</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let produto of produtos" style="cursor: pointer;">
+          <td>{{ produto.codigo }}</td>
+          <td>{{ produto.nome }}</td>
+          <td>{{ produto.descricao }}</td>
+          <td>{{ produto.modalidade }}</td>
+          <td>{{ produto.validadeMeses }}</td>
+          <td>{{ produto.categoriaCertificado.nome }}</td>
+          <td>{{ produto.tipoPessoa }}</td>
+          <td>{{ produto.quantidade}}</td>
+          <td>{{ produto.preco | currency:'BRL' }}</td>
+          <td>{{ produto.disponivel ? 'Sim' : 'Não' }}</td>
+          <td>
+            <button class="btn btn-info btn-sm me-1"
+              (click)="consultarProduto(produto.codigo); $event.stopPropagation()">Consultar</button>
+
+            <button class="btn btn-primary btn-sm me-1"
+              (click)="alterarProduto(produto.codigo); $event.stopPropagation()">Alterar</button>
+
+            <button class="btn btn-danger btn-sm" (click)="onExcluir(produto.codigo, $event)">
+              Excluir
+            </button>
+
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div *ngIf="produtos.length === 0" class="alert alert-info">
+    Nenhum produto cadastrado.
+  </div>
+</div>

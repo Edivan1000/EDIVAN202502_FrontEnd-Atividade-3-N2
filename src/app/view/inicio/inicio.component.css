@@ -1,0 +1,59 @@
+/* Estilos Gerais para o tema futurista */
+.futuristic-bg {
+    background-color: #1a1a2e; /* Azul muito escuro / quase preto */
+    color: #e0e0e0; /* Cinza claro para texto geral */
+}
+
+/* Cores Neon */
+.text-primary-neon {
+    color: #00bcd4; /* Azul ciano neon */
+    text-shadow: 0 0 8px rgba(0, 188, 212, 0.7); /* Efeito de brilho */
+}
+
+.text-light-neon {
+    color: #8affff; /* Azul mais claro para parágrafo */
+    text-shadow: 0 0 5px rgba(138, 255, 255, 0.5);
+}
+
+/* Botões Futuristas */
+.btn-neon-primary {
+    background-color: #00bcd4; /* Azul ciano */
+    border: 2px solid #00bcd4;
+    color: #1a1a2e; /* Texto escuro no botão claro */
+    box-shadow: 0 0 15px rgba(0, 188, 212, 0.6); /* Brilho do botão */
+    transition: all 0.3s ease-in-out;
+}
+
+.btn-neon-primary:hover {
+    background-color: #00e5ff; /* Um pouco mais claro no hover */
+    border-color: #00e5ff;
+    color: #000;
+    box-shadow: 0 0 25px rgba(0, 229, 255, 0.8);
+    transform: translateY(-2px); /* Pequeno efeito de elevação */
+}
+
+.futuristic-btn {
+    padding: 15px 20px; /* Aumenta o padding para botões maiores */
+    font-size: 1.2rem; /* Tamanho da fonte maior */
+    border-radius: 8px; /* Cantos levemente arredondados */
+}
+
+/* Estilo para as imagens de módulo */
+.module-image-wrapper {
+    margin-top: 40px;
+    height: 160px; /* Altura fixa para a div para alinhar */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.module-icon {
+    width: 280px; /* Tamanho dos ícones */
+    height: 150px;
+    object-fit: contain; /* Garante que a imagem se encaixe sem cortar */
+    border-radius: 8px; /* Levemente arredondado */
+    box-shadow: 0 0 10px rgba(138, 255, 255, 0.4); /* Brilho sutil */
+    filter: saturate(1.2) brightness(1.1); /* Cores mais vibrantes */
+}
+
+/* (As classes .futuristic-image não são mais necessárias se você tirar as 3 imagens) */

@@ -1,0 +1,100 @@
+<div class="container-fluid py-5 cliente-consulta-bg">
+    <div class="container light-card">
+        <h2 class="mb-4 text-primary-neon border-bottom pb-2">
+            <i class="bi bi-patch-plus-fill me-2"></i> Cadastro de Produto
+        </h2>
+
+        <!-- Adicionamos #produtoForm="ngForm" -->
+        <form #produtoForm="ngForm" (ngSubmit)="onSubmit(produtoForm)">
+
+            <div class="row mb-4">
+                <div class="col-lg-11">
+                    <div class="data-group-card p-4 form-fields-group">
+                        <div class="row g-4">
+
+                            <div class="col-md-4">
+                                <label for="nome" class="form-label data-label">Nome:</label>
+                                <input type="text" id="nome" name="nome" [(ngModel)]="produto.nome" class="form-control"
+                                    required>
+                            </div>
+
+                            <div class="col-md-4">
+                                <label for="modalidade" class="form-label data-label">Modalidade:</label>
+                                <input type="text" id="modalidade" name="modalidade" class="form-control"
+                                    [(ngModel)]="produto.modalidade" placeholder="Digite a modalidade">
+                            </div>
+
+                            <div class="col-md-4">
+                                <label for="categoria" class="form-label data-label">Categoria do Certificado:</label>
+                                <select id="categoria" name="categoria" class="form-control"
+                                    [(ngModel)]="produto.categoriaCertificado" required>
+                                    <option [ngValue]="null" value="" disabled>Selecione uma opção</option>
+                                    <option *ngFor="let cat of categorias" [ngValue]="cat">
+                                        {{ cat.nome || cat.codigo }}
+                                    </option>
+                                </select>
+                            </div>
+
+                            <div class="col-md-4">
+                                <label for="tipoPessoa" class="form-label data-label">Tipo de Pessoa:</label>
+                                <select id="tipoPessoa" name="tipoPessoa" class="form-control"
+                                    [(ngModel)]="produto.tipoPessoa" required>
+                                    <option value="" disabled>Selecione uma opção</option>
+                                    <option value="F">Pessoa Física</option>
+                                    <option value="J">Pessoa Jurídica</option>
+                                </select>
+                            </div>
+
+                            <div class="col-md-4">
+                                <label for="validade" class="form-label data-label">Validade (Meses):</label>
+                                <input type="text" id="validade" name="validadeMeses"
+                                    [(ngModel)]="produto.validadeMeses" class="form-control" placeholder="Ex: 12"
+                                    (keypress)="permitirSomenteNumeros($event)">
+                            </div>
+
+                            <div class="col-md-4">
+                                <label for="preco" class="form-label data-label">Preço (R$):</label>
+                                <input type="text" id="preco" name="preco" [(ngModel)]="produto.preco"
+                                    class="form-control" placeholder="Ex: 99.90"
+                                    (keypress)="permitirSomenteNumerosComPonto($event)">
+                            </div>
+
+                            <div class="col-md-4">
+                                <label for="quantidade" class="form-label data-label">Quantidade em Estoque:</label>
+                                <input type="number" id="quantidade" name="quantidade" [(ngModel)]="produto.quantidade"
+                                    class="form-control" placeholder="Ex: 10"
+                                    (keypress)="permitirSomenteNumeros($event)">
+                            </div>
+
+                            <div class="col-md-4 d-flex align-items-end">
+                                <div class="form-check form-switch mb-0">
+                                    <input class="form-check-input" type="checkbox" role="switch" id="disponivel"
+                                        name="disponivel" [(ngModel)]="produto.disponivel">
+                                    <label class="form-check-label data-label" for="disponivel">Produto
+                                        Disponível</label>
+                                </div>
+                            </div>
+
+                            <div class="col-12 mt-4">
+                                <label for="descricao" class="form-label data-label">Descrição:</label>
+                                <textarea class="form-control" id="descricao" name="descricao" rows="3"
+                                    [(ngModel)]="produto.descricao"></textarea>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="d-flex justify-content-start mt-5">
+                <button class="btn btn-lg me-3 btn-neon-primary" type="submit">
+                    <i class="bi bi-check-circle me-2"></i> Salvar Produto
+                </button>
+                <button (click)="retornar()" class="btn btn-lg btn-outline-secondary" type="button">
+                    <i class="bi bi-x-circle me-2"></i> Cancelar
+                </button>
+            </div>
+
+        </form>
+    </div>
+</div>

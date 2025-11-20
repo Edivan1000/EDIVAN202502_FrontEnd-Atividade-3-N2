@@ -1,0 +1,49 @@
+<div class="container mt-5 p-4 bg-light rounded shadow-sm">
+  <h2 class="mb-4">Lista de Empresas</h2>
+
+  <div class="mb-3">
+    <button class="btn btn-success" (click)="inserirEmpresa()">Nova Empresa</button>
+  </div>
+
+  <div *ngIf="empresas.length > 0" class="table-responsive">
+    <table class="table table-bordered table-striped">
+      <thead class="table-dark">
+        <tr>
+          <th>Razão Social</th>
+          <th>Nome Fantasia</th>
+          <th>CNPJ</th>
+          <th>Email</th>
+          <th>Cidade</th>
+          <th>Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let empresa of empresas" (click)="consultarEmpresa(empresa)" style="cursor: pointer;">
+          <td>{{ empresa.razaoSocial }}</td>
+          <td>{{ empresa.nomeFantasia }}</td>
+          <td>{{ empresa.cnpj }}</td>
+          <td>{{ empresa.email }}</td>
+          <td>{{ empresa.endereco.cidade }}</td>
+          <td>
+            <button class="btn btn-info btn-sm me-1" (click)="consultarEmpresa(empresa); $event.stopPropagation()">
+              Consultar
+            </button>
+
+            <button class="btn btn-primary btn-sm me-1" (click)="alterarEmpresa(empresa); $event.stopPropagation()">
+              Alterar
+            </button>
+
+            <button class="btn btn-danger btn-sm" (click)="excluirEmpresa(empresa, $event); $event.stopPropagation()">
+              Excluir
+            </button>
+          </td>
+
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div *ngIf="empresas.length === 0" class="alert alert-info">
+    Nenhuma empresa cadastrada.
+  </div>
+</div>
